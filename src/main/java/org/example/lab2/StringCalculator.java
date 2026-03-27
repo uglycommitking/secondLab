@@ -78,7 +78,7 @@ public class StringCalculator {
         if (expression.isEmpty()) {
             throw new IllegalArgumentException("Выражение пустое");
         }
-
+        
         expression = substituteVariables(expression, variables);
 
         List<String> postfixTokens = infixToPostfix(expression);

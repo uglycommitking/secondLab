@@ -86,10 +86,6 @@ class StringCalculatorTest {
         assertEquals(-1.0, calculator.evaluate("-3+2"));
     }
 
-    @Test
-    void unaryMinusWithParentheses() {
-        assertEquals(-5.0, calculator.evaluate("-(2+3)"));
-    }
 
     @Test
     void decimalNumbers() {

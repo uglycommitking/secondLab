@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.example.lab2.StringCalculatorTest" time="0.13" tests="43" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1251"/>
+    <property name="java.class.path" value="C:\Users\seven\Desktop\javaProjects\secondLab\target\test-classes;C:\Users\seven\Desktop\javaProjects\secondLab\target\classes;C:\Users\seven\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.0\junit-jupiter-5.10.0.jar;C:\Users\seven\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.0\junit-jupiter-api-5.10.0.jar;C:\Users\seven\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\seven\.m2\repository\org\junit\platform\junit-platform-commons\1.10.0\junit-platform-commons-1.10.0.jar;C:\Users\seven\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\seven\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.0\junit-jupiter-params-5.10.0.jar;C:\Users\seven\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.0\junit-jupiter-engine-5.10.0.jar;C:\Users\seven\.m2\repository\org\junit\platform\junit-platform-engine\1.10.0\junit-platform-engine-1.10.0.jar;"/>
+    <property name="java.vm.vendor" value="Microsoft"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://www.microsoft.com"/>
+    <property name="user.timezone" value="Europe/Moscow"/>
+    <property name="user.country.format" value="RU"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Users\seven\.jdks\ms-21.0.7\bin"/>
+    <property name="sun.java.command" value="C:\Users\seven\AppData\Local\Temp\surefire12326468756381954430\surefirebooter-20260327230151149_3.jar C:\Users\seven\AppData\Local\Temp\surefire12326468756381954430 2026-03-27T23-01-51_065-jvmRun1 surefire-20260327230151149_1tmp surefire_0-20260327230151149_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\seven\Desktop\javaProjects\secondLab\target\test-classes;C:\Users\seven\Desktop\javaProjects\secondLab\target\classes;C:\Users\seven\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.0\junit-jupiter-5.10.0.jar;C:\Users\seven\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.0\junit-jupiter-api-5.10.0.jar;C:\Users\seven\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\seven\.m2\repository\org\junit\platform\junit-platform-commons\1.10.0\junit-platform-commons-1.10.0.jar;C:\Users\seven\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\seven\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.0\junit-jupiter-params-5.10.0.jar;C:\Users\seven\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.0\junit-jupiter-engine-5.10.0.jar;C:\Users\seven\.m2\repository\org\junit\platform\junit-platform-engine\1.10.0\junit-platform-engine-1.10.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\seven"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-04-15"/>
+    <property name="java.home" value="C:\Users\seven\.jdks\ms-21.0.7"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\seven\Desktop\javaProjects\secondLab"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\seven\AppData\Local\Temp\surefire12326468756381954430\surefirebooter-20260327230151149_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.7+6-LTS"/>
+    <property name="user.name" value="seven"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Microsoft-11369940"/>
+    <property name="localRepository" value="C:\Users\seven\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/microsoft/openjdk/issues"/>
+    <property name="java.io.tmpdir" value="C:\Users\seven\AppData\Local\Temp\"/>
+    <property name="java.version" value="21.0.7"/>
+    <property name="user.dir" value="C:\Users\seven\Desktop\javaProjects\secondLab"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.language.format" value="ru"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1251"/>
+    <property name="java.library.path" value="C:\Users\seven\.jdks\ms-21.0.7\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\seven\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\gradle\latest\bin;C:\Users\seven\.jdks\ms-21.0.7\bin;D:\Apps\VS code\Microsoft VS Code;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;D:\Apps\VMware\VMWare\bin\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\dotnet\;D:\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\WireGuard\;C:\Program Files\Git\cmd;C:\Program Files (x86)\cloudflared\;C:\Program Files\nodejs\;C:\Program Files\Vagrant\bin;C:\Users\seven\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\seven\AppData\Local\Programs\Python\Python313\;C:\Users\seven\AppData\Local\Microsoft\WindowsApps;C:\Users\seven\AppData\Local\JetBrains\Toolbox\scripts;C:\Users\seven\.dotnet\tools;D:\Apps\VS code\Microsoft VS Code\bin;C:\Users\seven\AppData\Local\Android\Sdk\platform-tools;C:\Users\seven\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\cloudflared;C:\Users\seven\AppData\Roaming\npm;D:\dart\flutter\bin;C:\Program Files\Java\jdk-26\bin;C:\Users\seven\Desktop\apache-maven-3.9.14\bin;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Microsoft"/>
+    <property name="java.vm.version" value="21.0.7+6-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="multipleVariables" classname="org.example.lab2.StringCalculatorTest" time="0.028"/>
+  <testcase name="expressionWithUnknownSymbol" classname="org.example.lab2.StringCalculatorTest" time="0.003"/>
+  <testcase name="sqrtOf4" classname="org.example.lab2.StringCalculatorTest" time="0.001"/>
+  <testcase name="sqrtOf9" classname="org.example.lab2.StringCalculatorTest" time="0.001"/>
+  <testcase name="subtraction" classname="org.example.lab2.StringCalculatorTest" time="0.0"/>
+  <testcase name="expressionWithSpaces" classname="org.example.lab2.StringCalculatorTest" time="0.0"/>
+  <testcase name="functionInExpression" classname="org.example.lab2.StringCalculatorTest" time="0.001"/>
+  <testcase name="unknownVariable" classname="org.example.lab2.StringCalculatorTest" time="0.001"/>
+  <testcase name="expressionWithManySpaces" classname="org.example.lab2.StringCalculatorTest" time="0.001"/>
+  <testcase name="cosOf0" classname="org.example.lab2.StringCalculatorTest" time="0.001"/>
+  <testcase name="expressionWithUnknownFunction" classname="org.example.lab2.StringCalculatorTest" time="0.001"/>
+  <testcase name="addition" classname="org.example.lab2.StringCalculatorTest" time="0.0"/>
+  <testcase name="singleVariable" classname="org.example.lab2.StringCalculatorTest" time="0.0"/>
+  <testcase name="variableInExpression" classname="org.example.lab2.StringCalculatorTest" time="0.001"/>
+  <testcase name="sinOf0" classname="org.example.lab2.StringCalculatorTest" time="0.0"/>
+  <testcase name="extractVariableNames" classname="org.example.lab2.StringCalculatorTest" time="0.0"/>
+  <testcase name="absOfPositive" classname="org.example.lab2.StringCalculatorTest" time="0.0"/>
+  <testcase name="emptyExpression" classname="org.example.lab2.StringCalculatorTest" time="0.001"/>
+  <testcase name="mismatchedOpenParenthesis" classname="org.example.lab2.StringCalculatorTest" time="0.003"/>
+  <testcase name="absOfNegative" classname="org.example.lab2.StringCalculatorTest" time="0.001"/>
+  <testcase name="negativeVariable" classname="org.example.lab2.StringCalculatorTest" time="0.001"/>
+  <testcase name="division" classname="org.example.lab2.StringCalculatorTest" time="0.001"/>
+  <testcase name="unaryMinus" classname="org.example.lab2.StringCalculatorTest" time="0.001"/>
+  <testcase name="decimalMultiplication" classname="org.example.lab2.StringCalculatorTest" time="0.0"/>
+  <testcase name="unaryMinusInExpression" classname="org.example.lab2.StringCalculatorTest" time="0.002"/>
+  <testcase name="multiplication" classname="org.example.lab2.StringCalculatorTest" time="0.001"/>
+  <testcase name="cosOf60" classname="org.example.lab2.StringCalculatorTest" time="0.0"/>
+  <testcase name="cosOf90" classname="org.example.lab2.StringCalculatorTest" time="0.0"/>
+  <testcase name="parentheses(String, double)[1]" classname="org.example.lab2.StringCalculatorTest" time="0.015"/>
+  <testcase name="parentheses(String, double)[2]" classname="org.example.lab2.StringCalculatorTest" time="0.001"/>
+  <testcase name="parentheses(String, double)[3]" classname="org.example.lab2.StringCalculatorTest" time="0.002"/>
+  <testcase name="parentheses(String, double)[4]" classname="org.example.lab2.StringCalculatorTest" time="0.001"/>
+  <testcase name="decimalNumbers" classname="org.example.lab2.StringCalculatorTest" time="0.0"/>
+  <testcase name="sqrtOfNegative" classname="org.example.lab2.StringCalculatorTest" time="0.001"/>
+  <testcase name="operatorPrecedence(String, double)[1]" classname="org.example.lab2.StringCalculatorTest" time="0.0"/>
+  <testcase name="operatorPrecedence(String, double)[2]" classname="org.example.lab2.StringCalculatorTest" time="0.0"/>
+  <testcase name="operatorPrecedence(String, double)[3]" classname="org.example.lab2.StringCalculatorTest" time="0.001"/>
+  <testcase name="operatorPrecedence(String, double)[4]" classname="org.example.lab2.StringCalculatorTest" time="0.001"/>
+  <testcase name="mismatchedCloseParenthesis" classname="org.example.lab2.StringCalculatorTest" time="0.0"/>
+  <testcase name="nestedFunctionAndVariable" classname="org.example.lab2.StringCalculatorTest" time="0.001"/>
+  <testcase name="divisionByZero" classname="org.example.lab2.StringCalculatorTest" time="0.001"/>
+  <testcase name="sinOf30" classname="org.example.lab2.StringCalculatorTest" time="0.0"/>
+  <testcase name="sinOf90" classname="org.example.lab2.StringCalculatorTest" time="0.001"/>
+</testsuite>
