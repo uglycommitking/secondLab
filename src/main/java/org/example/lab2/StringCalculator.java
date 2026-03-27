@@ -5,14 +5,69 @@ import java.util.*;
 public class StringCalculator {
 
     public double evaluate(String expression) {
+        return evaluate(expression, Collections.emptyMap());
+    }
+
+    public double evaluate(String expression, Map<String, Double> variables) {
         expression = expression.replaceAll("\\s", "");
 
         if (expression.isEmpty()) {
             throw new IllegalArgumentException("Выражение пустое");
         }
 
+        expression = substituteVariables(expression, variables);
+
         List<String> postfixTokens = infixToPostfix(expression);
         return evaluatePostfix(postfixTokens);
+    }
+
+    private String substituteVariables(String expression, Map<String, Double> variables) {
+        List<String> sortedNames = new ArrayList<>(variables.keySet());
+        sortedNames.sort((a, b) -> b.length() - a.length());
+
+        for (String name : sortedNames) {
+            double value = variables.get(name);
+            String replacement = value < 0 ? "(" + value + ")" : String.valueOf(value);
+            expression = expression.replaceAll("(?<![a-zA-Z0-9])" + name + "(?![a-zA-Z0-9])", replacement);
+        }
+
+        int i = 0;
+        while (i < expression.length()) {
+            char ch = expression.charAt(i);
+            if (Character.isLetter(ch)) {
+                StringBuilder identifier = new StringBuilder();
+                while (i < expression.length() && Character.isLetterOrDigit(expression.charAt(i))) {
+                    identifier.append(expression.charAt(i));
+                    i++;
+                }
+                throw new IllegalArgumentException("Неизвестная переменная: " + identifier);
+            } else {
+                i++;
+            }
+        }
+
+        return expression;
+    }
+
+    public static Set<String> extractVariableNames(String expression) {
+        Set<String> foundVariables = new LinkedHashSet<>();
+
+        int index = 0;
+        while (index < expression.length()) {
+            char currentChar = expression.charAt(index);
+            if (Character.isLetter(currentChar)) {
+                StringBuilder identifier = new StringBuilder();
+                while (index < expression.length() && Character.isLetterOrDigit(expression.charAt(index))) {
+                    identifier.append(expression.charAt(index));
+                    index++;
+                }
+                foundVariables.add(identifier.toString());
+            } else {
+                index++;
+            }
+        }
+
+        return foundVariables;
     }
 
     private List<String> infixToPostfix(String infixExpression) {
