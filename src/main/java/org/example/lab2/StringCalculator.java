@@ -26,6 +26,7 @@ public class StringCalculator {
         sortedNames.sort((a, b) -> b.length() - a.length());
 
         for (String name : sortedNames) {
+            if (isKnownFunction(name)) continue;
             double value = variables.get(name);
             String replacement = value < 0 ? "(" + value + ")" : String.valueOf(value);
             expression = expression.replaceAll("(?<![a-zA-Z0-9])" + name + "(?![a-zA-Z0-9])", replacement);
@@ -40,7 +41,10 @@ public class StringCalculator {
                     identifier.append(expression.charAt(i));
                     i++;
                 }
-                throw new IllegalArgumentException("Неизвестная переменная: " + identifier);
+                String name = identifier.toString();
+                if (!isKnownFunction(name)) {
+                    throw new IllegalArgumentException("Неизвестная переменная или функция: " + name);
+                }
             } else {
                 i++;
             }
@@ -50,6 +54,7 @@ public class StringCalculator {
     }
 
     public static Set<String> extractVariableNames(String expression) {
+        Set<String> knownFunctions = Set.of("sin", "cos", "sqrt", "abs");
         Set<String> foundVariables = new LinkedHashSet<>();
 
         int index = 0;
@@ -61,7 +66,10 @@ public class StringCalculator {
                     identifier.append(expression.charAt(index));
                     index++;
                 }
-                foundVariables.add(identifier.toString());
+                String name = identifier.toString();
+                if (!knownFunctions.contains(name)) {
+                    foundVariables.add(name);
+                }
             } else {
                 index++;
             }
@@ -93,6 +101,21 @@ public class StringCalculator {
                 continue;
             }
 
+            if (Character.isLetter(currentChar)) {
+                StringBuilder functionName = new StringBuilder();
+                while (i < infixExpression.length() && Character.isLetter(infixExpression.charAt(i))) {
+                    functionName.append(infixExpression.charAt(i));
+                    i++;
+                }
+                String name = functionName.toString();
+                if (!isKnownFunction(name)) {
+                    throw new IllegalArgumentException("Неизвестная функция: " + name);
+                }
+                operatorStack.push(name);
+                expectingOperand = true;
+                continue;
+            }
+
             if (currentChar == '(') {
                 operatorStack.push("(");
                 expectingOperand = true;
@@ -108,6 +131,9 @@ public class StringCalculator {
                     throw new IllegalArgumentException("Несбалансированные скобки: лишняя ')'");
                 }
                 operatorStack.pop();
+                if (!operatorStack.isEmpty() && isKnownFunction(operatorStack.peek())) {
+                    outputQueue.add(operatorStack.pop());
+                }
                 expectingOperand = false;
                 i++;
                 continue;
@@ -146,6 +172,12 @@ public class StringCalculator {
         for (String token : postfixTokens) {
             if (isNumeric(token)) {
                 operandStack.push(Double.parseDouble(token));
+            } else if (isKnownFunction(token)) {
+                if (operandStack.isEmpty()) {
+                    throw new IllegalArgumentException("Недостаточно операндов для функции: " + token);
+                }
+                double argument = operandStack.pop();
+                operandStack.push(applyFunction(token, argument));
             } else {
                 if (operandStack.size() < 2) {
                     throw new IllegalArgumentException("Недостаточно операндов для оператора: " + token);
@@ -163,12 +195,29 @@ public class StringCalculator {
         return operandStack.pop();
     }
 
+    private double applyFunction(String functionName, double argument) {
+        return switch (functionName) {
+            case "sin"  -> Math.sin(Math.toRadians(argument));
+            case "cos"  -> Math.cos(Math.toRadians(argument));
+            case "sqrt" -> {
+                if (argument < 0) throw new ArithmeticException("Корень из отрицательного числа: " + argument);
+                yield Math.sqrt(argument);
+            }
+            case "abs"  -> Math.abs(argument);
+            default -> throw new IllegalArgumentException("Неизвестная функция: " + functionName);
+        };
+    }
+
     private int operatorPrecedence(String operator) {
         return switch (operator) {
             case "+", "-" -> 1;
             case "*", "/" -> 2;
             default -> -1;
         };
+    }
+
+    private boolean isKnownFunction(String name) {
+        return name.equals("sin") || name.equals("cos") || name.equals("sqrt") || name.equals("abs");
     }
 
     private boolean isOperatorChar(char ch) {
