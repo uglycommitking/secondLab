@@ -4,6 +4,70 @@ import java.util.*;
 
 public class StringCalculator {
 
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        StringCalculator calculator = new StringCalculator();
+
+        System.out.println("=== Калькулятор выражений ===");
+        System.out.println("Поддерживаются: +, -, *, /, скобки, переменные, функции sin/cos/sqrt/abs");
+        System.out.println("Для выхода введите: exit");
+        System.out.println();
+
+        while (true) {
+            System.out.print("Введите выражение: ");
+            String input = scanner.nextLine().trim();
+
+            if (input.equalsIgnoreCase("exit")) {
+                System.out.println("До свидания!");
+                break;
+            }
+
+            if (input.isEmpty()) {
+                System.out.println("Ошибка: выражение не может быть пустым.\n");
+                continue;
+            }
+
+            try {
+                Map<String, Double> variables = requestVariableValues(input, scanner);
+                double result = calculator.evaluate(input, variables);
+                System.out.printf("Результат: %s%n%n", formatResult(result));
+            } catch (IllegalArgumentException e) {
+                System.out.println("Ошибка в выражении: " + e.getMessage() + "\n");
+            } catch (ArithmeticException e) {
+                System.out.println("Математическая ошибка: " + e.getMessage() + "\n");
+            }
+        }
+
+        scanner.close();
+    }
+
+    private static Map<String, Double> requestVariableValues(String expression, Scanner scanner) {
+        Set<String> variableNames = extractVariableNames(expression);
+        Map<String, Double> variables = new HashMap<>();
+
+        for (String name : variableNames) {
+            while (true) {
+                System.out.print("Введите значение для переменной " + name + ": ");
+                String valueInput = scanner.nextLine().trim();
+                try {
+                    variables.put(name, Double.parseDouble(valueInput));
+                    break;
+                } catch (NumberFormatException e) {
+                    System.out.println("Некорректное значение, введите число.");
+                }
+            }
+        }
+
+        return variables;
+    }
+
+    private static String formatResult(double value) {
+        if (value == Math.floor(value) && !Double.isInfinite(value)) {
+            return String.valueOf((long) value);
+        }
+        return String.valueOf(value);
+    }
+
     public double evaluate(String expression) {
         return evaluate(expression, Collections.emptyMap());
     }
